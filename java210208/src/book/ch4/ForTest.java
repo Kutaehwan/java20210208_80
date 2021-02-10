@@ -3,7 +3,7 @@
 package book.ch4;
 
 public class ForTest {
-	
+	// 선언부
 	public static void main(String[] args) {
 		
 		int evensum = 0;	// 짝수의 합 저장하는 변수
@@ -38,7 +38,7 @@ public class ForTest {
 		
 		for (int a=0; a<11; a++) {
 			if (a % 2 != 0) {	// 
-				oddsum = oddsum + a;	
+				oddsum = oddsum + a;
 				System.out.print(oddsum + " ");
 			}
 		}
