@@ -7,8 +7,54 @@ package com.vo;
 /*
  * Number(2) - 정수형, 담을 수 있는 최대 크기는 0~99까지 이다. - 임계 값 
  * 			 - int(4byte), long(8byte)
+ * VO 패턴을 사용하면 한 꺼번에 3가지 종류[부서번호, 부서명, 지역]의 값을 관리 가능하다.
+ * 서버 자체는 항상 동시에 여러 사람이 접속할 수 있다.
+ * 이 여러 사람을 따로 관리할 수 있어야 한다. - Thread 공부 - 내가 직접 서버를 운영할 수 있는 코딩을 보여줄 것이다.
+ * 인스턴스화 하는 이유
+ * DeptVO dvo = new DeptVO();
+ * dvo = new DeptVO();
+ * dvo = new DeptVO();
+ * 이 것은 합법인가??
+ * 어떻게 다른걸까??
+ * 어떤 방법이 더 좋은 걸까??
+ * 언제 저렇게 써야 하나??
  */
-public class DeptVO {
 
+// 변수의 접근제한자를 왜 private로 한 이유는???????
+// -> private는 
+public class DeptVO {
+	
+	private int deptno = 0;			// 부서번호, 원시형 타입 - 부르면 값이 나온다. 4 byte
+	private String dname = null;	// 부서명, 레퍼런스 타입 - class 급 - 값이 아니라 주소번지가 나온다.
+									// 다만 부서명을 출력할 수 있다.
+	private String loc = null;		// 지역, 레퍼런스 타입 - 주소번지
+	
+	// getter 메소드 - Read
+	public int getDeptno() {
+		return deptno;
+	}
+	
+	// setter 메소드 - Write, save 느낌으로 접근해 보기
+	public void setDeptno(int deptno) {
+		// deptno = 30; -> 상수 사용, 재사용성이 떨어진다.
+		// this는 나 자신을 가리치키는 수정자이다. 여기서는 지변과 식별을 위해 사용하였다. 생략할 수 있다. 그런데 헷갈린다.
+		this.deptno = deptno;
+	}
+	
+	public String getDname() {
+		return dname;
+	}
+	
+	public void setDname(String dname) {
+		this.dname = dname;
+	}
+	
+	public String getLoc() {
+		return loc;
+	}
+	
+	public void setLoc(String loc) {
+		this.loc = loc;
+	}
 	
 }

@@ -8,7 +8,7 @@ public class Quiz1 {
 		
 		Quiz1 q = new Quiz1();
 		q.methodA(5);
-		q.methodA(5);
+		q.methodA(5.0);
 		System.out.println(q.x);
 
 	}

@@ -1,7 +1,8 @@
 // 2월 9일 총점 및 평균 값 구하기
+// 연습용 "save as"
 package variable.step1;	//선생님이랑 같이 짠 코드
 
-public class Account_t {
+public class Account1_1 {
 	
 	double kor = 0;		// 국어점수
 	double math = 0;	// 수학점수
@@ -28,34 +29,42 @@ public class Account_t {
 	 * @return
 	 *************************************************************************/
 	
-	private double avg(double tot, int num) {
+	private double avg(double tot) {
 		// 메소드에서 파라미터를 사용할 떄 배달 사고 이런것들을 주의하기
 		System.out.println("파라미터로 넘어온 tot 값 출력해 보기 ====> " + tot);		// 총 점수 값 재 확인
 		double avg = 0;
-		avg = tot / num;
+		avg = tot / 3;
 		return avg;
 	}
-	// 나는 메소드를 선언 할 수 있다.
-	// 대입 연산자 int i = 2;
-	// 메소드 안에 있는 ,는 열겨형 연산자
-	// . : dot 연산자 - 주소번지.전역변수
-	// 접근 제한자(access modifier) - static 수정자 - 리턴 타입 - 메소드 이름(파라미터1, 파라미터2, .....)
 
 	public static void main(String[] args) {
-		Account_t ac = new Account_t();
-
+		Account1_1 ac = new Account1_1();
 		ac.kor = 70;
 		ac.math = 80;
 		ac.eng = 90;
 		double tot = ac.hap(ac.kor, ac.math, ac.eng);
 		
-		double avg = ac.avg(tot, 3);
-				
+		double test_avg = ac.avg(tot, 3);
+		
 		System.out.println(tot);
-		System.out.println(avg);
+		// System.out.println(avg);
 		// 위에서 계산한 총점을 avg메소드의 파라미터로 넘기려면
 		// 반드시 리턴타입이 필요하다.
 
+	}
+	
+	/***********************************************************************
+	 * 
+	 * @param tot - 총 합을 계산한 값
+	 * @param subjectNumber - 과목 수
+	 * @return
+	********************************************************************/
+	
+	private double avg(double tot, int subjectNumber) {
+		// 0.0.이 찍히면 배달사고가 일어 났다. - 단위 테스트를 통해 확인하고 진행하기
+		System.out.println("tot==>" + tot + ", subjectNumber==>" + subjectNumber);
+		double imsi = tot / subjectNumber;
+		return imsi;
 	}
 
 
